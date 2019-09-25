@@ -1,0 +1,21 @@
+<?php
+/**
+ *
+Used to conceal the ability to assign the administrator role by users with roles that are less than administrator. This is a band-aid to address the issue that will be solved by the full port of the role delegation module, and should be removed once that has been completed.
+ *
+ **/
+function adap_role_concealer() {
+  global $user;
+  $path = $_SERVER['REQUEST_URI'];
+  $finduser = 'user';
+  $findpeople = 'people';
+  $edit_users = strpos($path, $finduser);
+  $list_users = strpos($path, $findpeople);
+  if (($user->uid != 1) && (($edit_users !== false) || ($list_users !== false) ) ) { 
+    backdrop_add_css('modules/adap_role/css/adap_role.css');
+  } else {
+      
+  }
+}
+adap_role_concealer();
+?>

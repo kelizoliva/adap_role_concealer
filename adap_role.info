@@ -1,0 +1,4 @@
+name = ADAP Role Concealer
+description = Obscures roles available for assignment by anyone who is not an administrator.
+backdrop = 1.x
+type = module

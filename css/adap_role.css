@@ -1,0 +1,6 @@
+.form-item-roles-administrator {
+	display: none;
+}
+#views-form-user-admin-page tr.Administrator {
+	display: none;
+}
