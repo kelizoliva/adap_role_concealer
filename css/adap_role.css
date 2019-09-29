@@ -4,3 +4,7 @@
 #views-form-user-admin-page tr.Administrator {
 	display: none;
 }
+.views-bulk-form option[value=user_remove_role_administrator],
+.views-bulk-form option[value=user_add_role_administrator] {
+	display: none;
+}
