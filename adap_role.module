@@ -11,8 +11,10 @@ function adap_role_concealer() {
   $findpeople = 'people';
   $edit_users = strpos($path, $finduser);
   $list_users = strpos($path, $findpeople);
-  if (($user->uid != 1) && (($edit_users !== false) || ($list_users !== false) ) ) { 
+  if ( $user->roles !== array('authenticated', 'administrator') && (( $edit_users !== false ) || ( $list_users !== false ) ) ) { 
     backdrop_add_css('modules/adap_role/css/adap_role.css');
+  //if { ( (user_has_role('administrator')) && (( $edit_users !== false ) || ( $list_users !== false ) ) ) {
+	//  backdrop_add_css('modules/adap_role/css/adap_role.css');
   } else {
       
   }
