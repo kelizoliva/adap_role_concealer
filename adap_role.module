@@ -16,8 +16,7 @@ function adap_role_concealer() {
   }
   else {
 	  
-  }
-  
+  }  
 }
 adap_role_concealer();
 
@@ -34,8 +33,18 @@ function adap_admin_role_concealer() {
   else {
 	  
   }
-  
 }
 adap_admin_role_concealer();
+
+function adap_user_menu_concealer() {
+  global $user;
+  if ( $user->roles !== array('authenticated', 'administrator') && $user->roles !== array('authenticated', 'adap_administrator') && $user->roles !== array('authenticated', 'manager') )  {
+	  backdrop_add_css('modules/adap_role/css/not_admin_manager.css');
+  }
+  else {
+	  
+  }
+}
+adap_user_menu_concealer();
 
 ?>
