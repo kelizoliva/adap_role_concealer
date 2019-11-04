@@ -12,12 +12,30 @@ function adap_role_concealer() {
   $edit_users = strpos($path, $finduser);
   $list_users = strpos($path, $findpeople);
   if ( $user->roles !== array('authenticated', 'administrator') && (( $edit_users !== false ) || ( $list_users !== false ) ) ) { 
-    backdrop_add_css('modules/adap_role/css/adap_role.css');
-  //if { ( (user_has_role('administrator')) && (( $edit_users !== false ) || ( $list_users !== false ) ) ) {
-	//  backdrop_add_css('modules/adap_role/css/adap_role.css');
-  } else {
-      
+    backdrop_add_css('modules/adap_role/css/not_admin.css');
   }
+  else {
+	  
+  }
+  
 }
 adap_role_concealer();
+
+function adap_admin_role_concealer() {
+  global $user;
+  $path = $_SERVER['REQUEST_URI'];
+  $finduser = 'user';
+  $findpeople = 'people';
+  $edit_users = strpos($path, $finduser);
+  $list_users = strpos($path, $findpeople);
+  if ( $user->roles !== array('authenticated', 'administrator') && $user->roles !== array('authenticated', 'adap_administrator') && (( $edit_users !== false ) || ( $list_users !== false ) ) ) {
+	  backdrop_add_css('modules/adap_role/css/not_adap_admin.css');
+  }
+  else {
+	  
+  }
+  
+}
+adap_admin_role_concealer();
+
 ?>
